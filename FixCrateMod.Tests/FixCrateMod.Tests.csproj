@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -58,6 +58,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FixCrateMod\FixCrateMod.csproj" />
+    <ProjectReference Include="..\SampleClassLib\SampleClassLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>
