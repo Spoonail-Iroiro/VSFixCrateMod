@@ -5,7 +5,7 @@
   "authors": [
     "Spoonail"
   ],
-  "description": "Fixes bulk item withdrawal from a crates pulling partial stacks instead of full stacks",
+  "description": "Fixes bulk item withdrawal from a crate pulling a partial stack instead of a full stack",
   "version": "0.1.0",
   "dependencies": {
     "game": ""

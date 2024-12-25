@@ -74,7 +74,7 @@ namespace AirThermoMod.Patches {
             //     which means they always takes a full stack or all remaining items in the crate
             // (C) Calls `inventory.FirstNonEmptySlot` in all other cases
             bool firstProcessed = false;
-            var patchedMethodInfo = SymbolExtensions.GetMethodInfo(() => PatchedFirstNonEmptySlot.Dispatch(null, null));
+            var dispatchMethodInfo = SymbolExtensions.GetMethodInfo(() => PatchedFirstNonEmptySlot.Dispatch(null, null));
             foreach (var instruction in instructions) {
                 if (!firstProcessed && instruction.opcode == OpCodes.Callvirt && instruction.operand != null) {
                     var strop = instruction.operand.ToString();
@@ -83,7 +83,7 @@ namespace AirThermoMod.Patches {
                         // Loads the argument `IPlayer byPlayer` on the stack
                         yield return new CodeInstruction(OpCodes.Ldarg_1);
                         // This calls PatchedFirstNonEmptySlot.Dispatch(inventory, byPlayer)
-                        yield return new CodeInstruction(OpCodes.Call, patchedMethodInfo);
+                        yield return new CodeInstruction(OpCodes.Call, dispatchMethodInfo);
                         firstProcessed = true;
                         // Skips the original instruction
                         continue;
